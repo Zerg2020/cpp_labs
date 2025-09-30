@@ -8,4 +8,4 @@ std::string Train::get_sound() const { return kTrainSound; }
 Train::Train()
     : PassengerCarrier(kTrainCostPerKmInBYN, kTrainSpeedInKmH,
                        get_number("\nPlease enter train travel distance(km): ",
-                                 kTrainMinDistanceKm, kTrainMaxDistanceKm)) {}
+                                 (int)kTrainMinDistanceKm, (int)kTrainMaxDistanceKm)) {}

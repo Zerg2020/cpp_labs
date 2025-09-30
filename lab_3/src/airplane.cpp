@@ -9,4 +9,4 @@ Airplane::Airplane()
     : PassengerCarrier(
           kAirplaneCostPerKmInBYN, kAirplaneSpeedInKmH,
           get_number("\nPlease enter airplane travel distance(km): ",
-                    kAirplaneMinDistanceKm, kAirplaneMaxDistanceKm)) {}
+                    (int)kAirplaneMinDistanceKm, (int)kAirplaneMaxDistanceKm)) {}

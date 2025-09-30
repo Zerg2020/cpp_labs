@@ -103,7 +103,7 @@ void menu_create_string(String **str_1, String **str_2) {
     }
     case 2: {
       std::cout << "The first string" << std::endl;
-      char *input_user = nullptr;
+      const char *input_user = nullptr;
       input_user = get_line();
       *str_1 = new String(input_user);
 
