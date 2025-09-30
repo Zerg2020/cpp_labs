@@ -73,7 +73,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=zerg2020_cpp_lab_1
+            -Dsonar.projectKey=zerg2020_cpp_lab_2
             -Dsonar.organization=${{ env.SONAR_ORG }}
             -Dsonar.sources=lab_2/src,lab_2/include
             -Dsonar.cfamily.compile-commands=lab_2/build_wrapper/compile_commands.json
