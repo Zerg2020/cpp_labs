@@ -3,7 +3,7 @@
 
 String::String() : data(nullptr), lenght(0), capacity(0) {}
 
-String::String(char *input_str)
+String::String(const char *input_str)
     : lenght(find_lenght(input_str)), capacity(lenght + 1) {
   data = new char[capacity];
   for (int index = 0; index < find_lenght(input_str); index++) {
@@ -11,7 +11,7 @@ String::String(char *input_str)
   }
 }
 
-void String::show() {
+void String::show()const {
   if (data == nullptr)
     return;
   for (int i = 0; data[i] != '\n' && data[i] != '\0'; i++)
@@ -25,7 +25,7 @@ void String::fill() {
   capacity = lenght + 1;
 }
 
-void String::concatenate_strs(String *str) {
+void String::concatenate_strs(const String *str) {
   capacity += str->get_lenght();
   auto temp = new char[capacity];
   int index = 0;

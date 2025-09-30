@@ -11,12 +11,12 @@ class String
 
   public:
   String();
-  explicit String(char *str);
+  explicit String(const char *str);
 
   int get_lenght() const {return lenght;}
   char get_symbol(int index) const {return data[index];}
 
-  void show();
+  void show() const;
   void fill();
-  void concatenate_strs(String* str);
+  void concatenate_strs(const String* str);
 };

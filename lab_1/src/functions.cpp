@@ -3,7 +3,7 @@
 
 char *get_line() {
   char *str{};
-  char symbol;
+  int symbol;
 
   while ((symbol = std::cin.get()) != '\n') {
     int lenght = find_lenght(str);
@@ -11,7 +11,7 @@ char *get_line() {
     for (int i = 0; i < lenght; i++) {
       temp[i] = str[i];
     }
-    temp[lenght] = symbol;
+    temp[lenght] = (char)symbol;
     temp[lenght + 1] = '\0';
 
     delete[] str;
