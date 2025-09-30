@@ -1,0 +1,25 @@
+#pragma once
+
+#include <iostream>
+
+class PassengerCarrier {
+    double costPrKm;
+    double speedKmH;
+    double distance;
+
+   protected:
+    PassengerCarrier();
+
+    explicit PassengerCarrier(double cost, double speed, double travelDistance);
+
+   public:
+    virtual ~PassengerCarrier();
+    virtual std::string get_sound() const;
+    double calculate_cost() const;
+    double calculate_time() const;
+
+    PassengerCarrier(const PassengerCarrier &other);
+    PassengerCarrier &operator=(const PassengerCarrier &other);
+    PassengerCarrier(PassengerCarrier &&move) noexcept;
+    PassengerCarrier &operator=(PassengerCarrier &&move) noexcept;
+};
