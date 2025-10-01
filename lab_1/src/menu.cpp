@@ -23,7 +23,7 @@ void menu() {
 
   while (true) {
     print_message_menu();
-    std::cout << "\o{33}[33mEnter number of operation \o{33}[0m" << std::endl;
+    std::cout << "Enter number of operation" << std::endl;
     int choose = get_digit();
 
     switch (choose) {
