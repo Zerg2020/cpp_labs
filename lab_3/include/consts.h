@@ -7,7 +7,7 @@ inline const std::string TRAIN_SOUND = "CHOOH CHOOH CHOOH!";
 inline const std::string AIRPLANE_SOUND = "WHOOSH! WHOOSH!";
 
 inline const int CAR_SPEED = 60;
-inline const int CAR_COST_PER_KM = 0.20;
+inline const double CAR_COST_PER_KM = 0.20;
 inline const double CAR_MIN_DIST = 1.0;
 inline const double CAR_MAX_DIST = 1000.0;
 

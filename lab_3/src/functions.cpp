@@ -2,7 +2,7 @@
 
 void print_info(const PassengerCarrier &carrier)
 {
-    std::cout << " The distance = " << carrier.get_distance() << "km" << std::endl;
+    std::cout <<"The distance = " << carrier.get_distance() << "km" << std::endl;
     std::cout << carrier.get_sound() << " The cost(in BYN) per distance travelled is " << carrier.calculate_cost() << std::endl;
     std::cout << carrier.get_sound() << " The time(in Hours) per distance travelled is " << carrier.calculate_time() << std::endl;
 }
