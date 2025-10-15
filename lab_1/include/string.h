@@ -6,14 +6,14 @@ class String
   private : 
 
   char *data;
-  int lenght;
+  int length;
   int capacity;
 
   public:
   String();
   explicit String(const char *str);
 
-  int get_lenght() const {return lenght;}
+  int get_length() const {return length;}
   char get_symbol(int index) const {return data[index];}
 
   void show() const;

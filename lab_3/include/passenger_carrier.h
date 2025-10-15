@@ -2,21 +2,23 @@
 
 #include <iostream>
 
-class PassengerCarrier {
+class PassengerCarrier
+{
     double costPrKm;
     double speedKmH;
     double distance;
 
-   protected:
+  protected:
     PassengerCarrier();
 
     explicit PassengerCarrier(double cost, double speed, double travelDistance);
 
-   public:
+  public:
     virtual ~PassengerCarrier();
     virtual std::string get_sound() const;
     double calculate_cost() const;
     double calculate_time() const;
+    double get_distance() const { return distance; };
 
     PassengerCarrier(const PassengerCarrier &other);
     PassengerCarrier &operator=(const PassengerCarrier &other);

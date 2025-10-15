@@ -6,13 +6,13 @@ char *get_line() {
   int symbol;
 
   while ((symbol = std::cin.get()) != '\n') {
-    int lenght = find_lenght(str);
-    auto temp = new char[lenght + 2];
-    for (int i = 0; i < lenght; i++) {
+    int length = find_length(str);
+    auto temp = new char[length + 2];
+    for (int i = 0; i < length; i++) {
       temp[i] = str[i];
     }
-    temp[lenght] = (char)symbol;
-    temp[lenght + 1] = '\0';
+    temp[length] = (char)symbol;
+    temp[length + 1] = '\0';
 
     delete[] str;
     str = temp;
@@ -20,7 +20,7 @@ char *get_line() {
   return str;
 }
 
-int find_lenght(const char *str_) {
+int find_length(const char *str_) {
   if (str_ == nullptr)
     return 0;
   int size = 0;

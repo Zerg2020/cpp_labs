@@ -2,30 +2,34 @@
 #include "airplane.h"
 #include "car.h"
 #include "consts.h"
+#include "functions.h"
 #include "menus.h"
 #include "train.h"
-#include "utils.h"
 
 Program::Program() = default;
 
-void Program::add_carrier() {
+void Program::add_carrier()
+{
     expand_carries();
-
     choose_carrier();
 
-    std::cout << kGreenColor << "\nYou have successfully added carrier!" << kWhiteColor << std::endl;
+    std::cout << C_GREEN << "\nYou have successfully added carrier!" << C_WHITE << std::endl;
 }
 
-void Program::expand_carries() {
-    if (size < 0) {
+void Program::expand_carries()
+{
+    if (size < 0)
+    {
         size = 0;
     }
 
-    if (size + 1 == cap) {
+    if (size + 1 == cap)
+    {
         cap *= 2;
         auto **newCarriers = new PassengerCarrier *[cap];
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++)
+        {
             newCarriers[i] = carriers[i];
         }
 
@@ -37,15 +41,18 @@ void Program::expand_carries() {
     size++;
 }
 
-void Program::choose_carrier() {
+void Program::choose_carrier()
+{
     int opt = 0;
 
     show_carriers_menu();
 
-    while (true) {
+    while (true)
+    {
         opt = get_number("\nPlease enter carriers menu option ", 1, 3);
 
-        switch (opt) {
+        switch (opt)
+        {
         case 1:
             carriers[size - 1] = new Car;
             return;
@@ -56,31 +63,34 @@ void Program::choose_carrier() {
             carriers[size - 1] = new Airplane;
             return;
         default:
-            std::cout << kRedColor << "\nError, you picked is an incorrect carrier menu option. Please try again."
-                      << kWhiteColor << std::endl;
+            std::cout << C_RED << "\nError, you picked is an incorrect carrier menu option. Please try again." << C_WHITE << std::endl;
         }
     }
 }
 
-void Program::show_info() const {
-    if (size == 0) {
-        std::cout << kRedColor << "\nError, you have not added any carriers yet. Please use option 1 to add a carrier."
-                  << kWhiteColor << std::endl;
+void Program::show_info() const
+{
+    if (size == 0)
+    {
+        std::cout << C_RED << "\nError, you have not added any carriers yet. Please use option 1 to add a carrier." << C_WHITE << std::endl;
         return;
     }
 
     std::cout << "\n\t\t\t\tINFO" << std::endl;
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         print_info(*carriers[i]);
         std::cout << std::endl;
     }
 
-    std::cout << kGreenColor << "You have successfully showed all info about carriers!" << kWhiteColor << std::endl;
+    std::cout << C_GREEN << "You have successfully showed all info about carriers!" << C_WHITE << std::endl;
 }
 
-void Program::remove_carriers() {
-    for (int i = 0; i < size; i++) {
+void Program::remove_carriers()
+{
+    for (int i = 0; i < size; i++)
+    {
         delete carriers[i];
     }
 
@@ -90,16 +100,19 @@ void Program::remove_carriers() {
     cap = 0;
 }
 
-void Program::run() {
+void Program::run()
+{
     int opt = 0;
 
     system("clear");
     show_task_menu();
 
-    while (true) {
+    while (true)
+    {
         opt = get_number("\nPlease enter menu option ", 1, 3);
 
-        switch (opt) {
+        switch (opt)
+        {
         case 1:
             add_carrier();
             break;
@@ -108,11 +121,10 @@ void Program::run() {
             break;
         case 3:
             remove_carriers();
-            std::cout << kGreenColor << "\nYou have successfully exited the program." << kWhiteColor << std::endl;
+            std::cout << C_GREEN << "\nYou have successfully exited the program." << C_WHITE << std::endl;
             return;
         default:
-            std::cout << kRedColor << "\nError, you picked is an incorrect menu option. Please try again."
-                      << kWhiteColor << std::endl;
+            std::cout << C_RED << "\nError, you picked is an incorrect menu option. Please try again." << C_WHITE << std::endl;
         }
     }
 }

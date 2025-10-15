@@ -1,12 +1,13 @@
-#include "utils.h"
+#include "functions.h"
 
-void print_info(const PassengerCarrier &carrier) {
-    std::cout << carrier.get_sound() << " The cost(in BYN) per distance travelled is " << carrier.calculate_cost()
-              << std::endl;
-    std::cout << carrier.get_sound() << " The time(in Hours) per distance travelled is " << carrier.calculate_time()
-              << std::endl;
+void print_info(const PassengerCarrier &carrier)
+{
+    std::cout << " The distance = " << carrier.get_distance() << "km" << std::endl;
+    std::cout << carrier.get_sound() << " The cost(in BYN) per distance travelled is " << carrier.calculate_cost() << std::endl;
+    std::cout << carrier.get_sound() << " The time(in Hours) per distance travelled is " << carrier.calculate_time() << std::endl;
 }
-int get_number(const std::string & prompt, int min, int max) {
+int get_number(const std::string &prompt, int min, int max)
+{
     int value = 0;
     while (true)
     {

@@ -5,7 +5,7 @@
 #include <string>
 
 int get_digit();
-int find_lenght(const char *str_);
+int find_length(const char *str_);
 char * get_line();
 
 

@@ -12,7 +12,7 @@ Array::Array(int arr_size) : size(arr_size) {
 
     for (int i = 0; i < size; i++) {
         std ::cout << "Element " << i + 1 << ">> ";
-        data[i] = getNumber("", kMinInt, kMaxInt);
+        data[i] = get_number("", MIN_INT, MAX_INT);
     }
 }
 
@@ -58,7 +58,7 @@ Array &Array::operator=(const Array &other) {
 
 Array &Array::operator=(Array &&move) noexcept {
     if (this != &move) {
-        size = move.size;
+        size = move.size; 
 
         delete[] data;
         data = move.data;
@@ -78,7 +78,7 @@ Array &Array::operator++() {
     return *this;
 }
 
-Array Array::operator++([[maybe_unused]] int value) {
+Array Array::operator++(int value) {
     Array tmp = *this;
 
     for (int i = 0; i < size; i++) {
@@ -88,13 +88,15 @@ Array Array::operator++([[maybe_unused]] int value) {
     return tmp;
 }
 
-bool Array::isEmpty() const 
+bool Array::is_empty() const 
 {
      return (data == nullptr && size == 0); 
 }
 
-void input(Array &arr, const std::string &msg) {
-    arr.size = getNumber("Please enter array size: ", 1, kMaxInt);
+//void Array::input(const std::string &msg) 
+void input(Array &arr, const std::string &msg) 
+{
+    arr.size = get_number("Please enter array size: ", 1, MAX_INT);
 
     std::cout << msg;
 
@@ -102,7 +104,7 @@ void input(Array &arr, const std::string &msg) {
 
     for (int i = 0; i < arr.size; i++) {
         std ::cout << "Element " << i + 1 << ">> ";
-        arr.data[i] = getNumber("", kMinInt, kMaxInt);
+        arr.data[i] = get_number("", MIN_INT, MAX_INT);
     }
 }
 

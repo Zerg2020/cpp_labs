@@ -16,7 +16,8 @@ public:
   Array &operator++();
   Array operator++(int value);
 
-  bool isEmpty() const;
+  bool is_empty() const;
   friend void input(Array &arr, const std::string &msg);
+  //void input(const std::string &msg);
   friend void show(Array arr, const std::string &msg);
 };

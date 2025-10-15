@@ -1,7 +1,8 @@
 #include "menus.h"
 #include <iostream>
 
-void show_task_menu() {
+void show_task_menu()
+{
     std::cout << "\n\t\t\t\tTASK" << std::endl;
     std::cout << "Create a base class 'PassengerCarrier' and derived classes 'Airplane', 'Train', 'Car'." << std::endl;
     std::cout << "Define methods to calculate time and cost of travel." << std::endl;
@@ -12,7 +13,8 @@ void show_task_menu() {
     std::cout << "3. Exit the program." << std::endl;
 }
 
-void show_carriers_menu() {
+void show_carriers_menu()
+{
     std::cout << "\n\t\t\t\tSELECT CARRIER TYPE" << std::endl;
     std::cout << "1. Car" << std::endl;
     std::cout << "2. Train" << std::endl;

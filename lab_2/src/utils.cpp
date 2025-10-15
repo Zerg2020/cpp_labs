@@ -1,7 +1,7 @@
 #include "utils.h"
 #include "consts.h"
 
-int getNumber(const std::string &msg, int min, int max) {
+int get_number(const std::string &msg, int min, int max) {
     int num = 0;
     int sym = 0;
 
@@ -21,7 +21,7 @@ int getNumber(const std::string &msg, int min, int max) {
 
         std::cin.clear();
         while (std::cin.get() != '\n' && !std::cin.eof());
-        std::cout << kRedColor << "\nError, invalid input. Please try again: "
-                  << kWhiteColor;
+        std::cout << C_RED << "\nError, invalid input. Please try again: "
+                  << C_WHITE;
     }
 }
