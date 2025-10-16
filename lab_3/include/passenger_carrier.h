@@ -4,8 +4,8 @@
 
 class PassengerCarrier
 {
-    double costPrKm;
-    double speedKmH;
+    double const_pr_km;
+    double speed_km_h;
     double distance;
 
   protected:
