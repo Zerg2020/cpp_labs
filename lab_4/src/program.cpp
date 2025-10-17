@@ -4,7 +4,7 @@
 #include "consts.h"
 #include "menus.h"
 #include "train.h"
-#include "utils.h"
+#include "functions.h"
 
 Program::Program() = default;
 

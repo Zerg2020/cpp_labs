@@ -1,6 +1,6 @@
 #include "train.h"
 #include "consts.h"
-#include "utils.h"
+#include "functions.h"
 
 std::string Train::get_sound() const {
     return TRAIN_SOUND;
