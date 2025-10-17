@@ -10,7 +10,7 @@ set(SOURCES
     src/car.cpp
     src/train.cpp
     src/airplane.cpp
-    src/utils.cpp
+    src/functions.cpp
     src/program.cpp
     src/menus.cpp
 )
@@ -20,7 +20,7 @@ set(HEADERS
     include/car.h
     include/train.h
     include/airplane.h
-    include/utils.h
+    include/functions.h
     include/program.h
     include/menus.h
 )
