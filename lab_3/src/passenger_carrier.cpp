@@ -1,11 +1,11 @@
 #include "passenger_carrier.h"
 
-PassengerCarrier::PassengerCarrier() : const_pr_km(0.0), speed_km_h(0.0), distance(0.0) {}
-PassengerCarrier::PassengerCarrier(double cost, double speed, double travelDistance) : const_pr_km(cost),
-                                 speed_km_h(speed), distance(travelDistance) {}
+PassengerCarrier::PassengerCarrier() : cost_pr_km(0.0), speed_km_h(0.0), distance(0.0) {}
+PassengerCarrier::PassengerCarrier(double cost, double speed, double travel_distance) : cost_pr_km(cost),
+                                 speed_km_h(speed), distance(travel_distance) {}
 PassengerCarrier::~PassengerCarrier()
 {
-    const_pr_km = 0;
+    cost_pr_km = 0;
     speed_km_h = 0;
     distance = 0;
 }
@@ -22,7 +22,7 @@ std::string PassengerCarrier::get_sound() const
 
 double PassengerCarrier::calculate_cost() const
 {
-    return distance * const_pr_km;
+    return distance * cost_pr_km;
 }
 
 double PassengerCarrier::calculate_time() const

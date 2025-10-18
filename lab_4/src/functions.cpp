@@ -7,7 +7,7 @@ std::string get_string(const std::string &msg) {
     while (true) {
         std::getline(std::cin, str);
 
-        if (!str.empty()) { // строка не пустая
+        if (!str.empty()) {
             return str;
         }
 

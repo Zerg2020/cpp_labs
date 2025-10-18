@@ -4,14 +4,14 @@
 
 class PassengerCarrier
 {
-    double const_pr_km;
+    double cost_pr_km;
     double speed_km_h;
     double distance;
 
   protected:
     PassengerCarrier();
 
-    explicit PassengerCarrier(double cost, double speed, double travelDistance);
+    explicit PassengerCarrier(double cost, double speed, double travel_distance);
 
   public:
     virtual ~PassengerCarrier();
