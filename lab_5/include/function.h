@@ -3,7 +3,7 @@
 #include <iostream>
 #include <limits>
 
-int get_int(const std::string &msg, int min, int max);
+int get_int(const std::string &prompt, int min, int max);
 
 template <class T>
 T get_value(const std::string &prompt)
@@ -26,32 +26,32 @@ T get_value(const std::string &prompt)
 }
 
 template <class T>
-int swap_element(T *array, int ind_first, int ind_secound)
-{
-  if (ind_first == ind_secound)
-    return 0;
-
-  T temp = array[ind_first];
-  array[ind_first] = array[ind_secound];
-  array[ind_secound] = temp;
-
-  return 0;
-}
-
-
-template <class T>
 T *get_array(const std::string &msg, int &lenght)
 {
   lenght = get_int("Enter lenght array ", 0, MAX_INT);
   std::cout << msg << std::endl;
 
   auto *array = new T[lenght];
-  for(int i = 0;i < lenght;i++)
+  for (int i = 0; i < lenght; i++)
   {
-    std::string msg = "Enter element [" + std::to_string(i+1) + "] ";
-    array[i] = get_value <T>(msg);
+    std::string massage = "Enter element [" + std::to_string(i + 1) + "] ";
+    array[i] = get_value<T>(massage);
   }
   return array;
+}
+
+template <class T>
+int swap_element(T *array,int length,int ind_first, int ind_secound)
+{
+  if (ind_first == ind_secound)
+    return 0;
+  if(ind_first >= length || ind_secound >= length)
+    return 1;
+  T temp = array[ind_first];
+  array[ind_first] = array[ind_secound];
+  array[ind_secound] = temp;
+
+  return 0;
 }
 
 template <class T>
@@ -86,7 +86,7 @@ void process_array()
     {
       int index_first = get_int("Enter index first elment  ", 0, length - 1);
       int index_secound = get_int("Enter index secound elment  ", 0, length - 1);
-      if (swap_element(arr, index_first, index_secound))
+      if (swap_element(arr,length, index_first, index_secound))
         std::cout << C_RED << "The operation was unsuccessful" << C_WHITE;
       else
         std::cout << C_GREN << "The operation was completed successfully\n" << C_WHITE;
@@ -102,4 +102,3 @@ void process_array()
     }
   }
 }
-
