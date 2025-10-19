@@ -1,7 +1,7 @@
-#include "program.h"
+#include "menu.h"
 
-int main() {
-    choiceBinaryTreeType();
-
-    return 0;
+int main()
+{
+  menu();
+  return 0;
 }
