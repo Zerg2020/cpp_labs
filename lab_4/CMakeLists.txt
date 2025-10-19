@@ -12,7 +12,7 @@ set(SOURCES
     src/airplane.cpp
     src/functions.cpp
     src/program.cpp
-    src/menus.cpp
+    src/menu.cpp
 )
 
 set(HEADERS
@@ -22,7 +22,7 @@ set(HEADERS
     include/airplane.h
     include/functions.h
     include/program.h
-    include/menus.h
+    include/menu.h
 )
 
 add_executable(lab4 ${SOURCES})

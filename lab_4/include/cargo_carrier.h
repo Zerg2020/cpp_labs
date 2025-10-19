@@ -3,7 +3,8 @@
 #include <iostream>
 #include <string>
 
-class CargoCarrier {
+class CargoCarrier
+{
     double cost_pr_km;
     double speed_km_h;
     double distance;
