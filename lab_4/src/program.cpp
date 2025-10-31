@@ -83,7 +83,6 @@ void Program::show_info() const
             << C_WHITE << std::endl;
         return;
     }
-
     std::cout << "\n\t\t\t\tINFO" << std::endl;
 
     for (int i = 0; i < size; i++)

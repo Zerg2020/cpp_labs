@@ -2,7 +2,8 @@
 
 #include "cargo_carrier.h"
 
-class Program {
+class Program
+{
     CargoCarrier **carriers = nullptr;
     int size = 0;
     int cap = 1;
