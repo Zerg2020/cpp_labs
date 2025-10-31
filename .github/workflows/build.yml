@@ -43,20 +43,41 @@ jobs:
       #     cmake -S lab_3 -B lab_3/build 
       #     build-wrapper-linux-x86-64 --out-dir lab_3/build_wrapper cmake --build lab_3/build --config Release
       
-      - name: Build lab4
-        run: |
-          rm -rf lab_4/build
-          mkdir lab_4/build
-          cmake -S lab_4 -B lab_4/build 
-          build-wrapper-linux-x86-64 --out-dir lab_4/build_wrapper cmake --build lab_4/build --config Release
+      # - name: Build lab4
+      #   run: |
+      #     rm -rf lab_4/build
+      #     mkdir lab_4/build
+      #     cmake -S lab_4 -B lab_4/build 
+      #     build-wrapper-linux-x86-64 --out-dir lab_4/build_wrapper cmake --build lab_4/build --config Release
 
-      - name: Build lab5
-        run: |
-          rm -rf lab_5/build
-          mkdir lab_5/build
-          cmake -S lab_5 -B lab_5/build 
-          build-wrapper-linux-x86-64 --out-dir lab_5/build_wrapper cmake --build lab_5/build --config Release
+      # - name: Build lab5
+      #   run: |
+      #     rm -rf lab_5/build
+      #     mkdir lab_5/build
+      #     cmake -S lab_5 -B lab_5/build 
+      #     build-wrapper-linux-x86-64 --out-dir lab_5/build_wrapper cmake --build lab_5/build --config Release
 
+      - name: Build lab6
+        run: |
+          rm -rf lab_6/build
+          mkdir lab_6/build
+          cmake -S lab_6 -B lab_6/build 
+          build-wrapper-linux-x86-64 --out-dir lab_6/build_wrapper cmake --build lab_6/build --config Release
+
+      - name: Build lab7
+        run: |
+          rm -rf lab_7/build
+          mkdir lab_7/build
+          cmake -S lab_7 -B lab_7/build 
+          build-wrapper-linux-x86-64 --out-dir lab_7/build_wrapper cmake --build lab_7/build --config Release
+
+      - name: Build lab8
+        run: |
+          rm -rf lab_8/build
+          mkdir lab_8/build
+          cmake -S lab_8 -B lab_8/build 
+          build-wrapper-linux-x86-64 --out-dir lab_8/build_wrapper cmake --build lab_8/build --config Release
+          
       # - name: SonarCloud scan lab_1
       #   uses: SonarSource/sonarqube-scan-action@v4
       #   env:
@@ -108,16 +129,50 @@ jobs:
       #       -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
       #       -Dsonar.issue.ignore.multicriteria.e1.ruleKey=cpp:S5025
 
-      - name: SonarCloud scan lab_4
+      # - name: SonarCloud scan lab_4
+      #   uses: SonarSource/sonarqube-scan-action@v4
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   with:
+      #     args: >
+      #       -Dsonar.projectKey=zerg2020_cpp_lab_4
+      #       -Dsonar.organization=${{ env.SONAR_ORG }}
+      #       -Dsonar.sources=lab_4/src,lab_4/include
+      #       -Dsonar.cfamily.compile-commands=lab_4/build_wrapper/compile_commands.json
+      #       -Dsonar.coverage.exclusions=**
+      #       -Dsonar.cfamily.skipCoverage=true
+      #       -Dsonar.exclusions=**/build/**,**/*.exe
+      #       -Dsonar.issue.ignore.multicriteria=e1
+      #       -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
+      #       -Dsonar.issue.ignore.multicriteria.e1.ruleKey=cpp:S5025
+
+      # - name: SonarCloud scan lab_5
+      #   uses: SonarSource/sonarqube-scan-action@v4
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   with:
+      #     args: >
+      #       -Dsonar.projectKey=zerg2020_cpp_lab_5
+      #       -Dsonar.organization=${{ env.SONAR_ORG }}
+      #       -Dsonar.sources=lab_5/src,lab_5/include
+      #       -Dsonar.cfamily.compile-commands=lab_5/build_wrapper/compile_commands.json
+      #       -Dsonar.coverage.exclusions=**
+      #       -Dsonar.cfamily.skipCoverage=true
+      #       -Dsonar.exclusions=**/build/**,**/*.exe
+      #       -Dsonar.issue.ignore.multicriteria=e1
+      #       -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
+      #       -Dsonar.issue.ignore.multicriteria.e1.ruleKey=cpp:S5025
+
+      - name: SonarCloud scan lab_6
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=zerg2020_cpp_lab_4
+            -Dsonar.projectKey=zerg2020_cpp_lab_6
             -Dsonar.organization=${{ env.SONAR_ORG }}
-            -Dsonar.sources=lab_4/src,lab_4/include
-            -Dsonar.cfamily.compile-commands=lab_4/build_wrapper/compile_commands.json
+            -Dsonar.sources=lab_6/src,lab_6/include
+            -Dsonar.cfamily.compile-commands=lab_6/build_wrapper/compile_commands.json
             -Dsonar.coverage.exclusions=**
             -Dsonar.cfamily.skipCoverage=true
             -Dsonar.exclusions=**/build/**,**/*.exe
@@ -125,16 +180,33 @@ jobs:
             -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
             -Dsonar.issue.ignore.multicriteria.e1.ruleKey=cpp:S5025
 
-      - name: SonarCloud scan lab_5
+      - name: SonarCloud scan lab_7
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=zerg2020_cpp_lab_5
+            -Dsonar.projectKey=zerg2020_cpp_lab_7
             -Dsonar.organization=${{ env.SONAR_ORG }}
-            -Dsonar.sources=lab_5/src,lab_5/include
-            -Dsonar.cfamily.compile-commands=lab_5/build_wrapper/compile_commands.json
+            -Dsonar.sources=lab_7/src,lab_7/include
+            -Dsonar.cfamily.compile-commands=lab_7/build_wrapper/compile_commands.json
+            -Dsonar.coverage.exclusions=**
+            -Dsonar.cfamily.skipCoverage=true
+            -Dsonar.exclusions=**/build/**,**/*.exe
+            -Dsonar.issue.ignore.multicriteria=e1
+            -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
+            -Dsonar.issue.ignore.multicriteria.e1.ruleKey=cpp:S5025
+
+      - name: SonarCloud scan lab_8
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=zerg2020_cpp_lab_8
+            -Dsonar.organization=${{ env.SONAR_ORG }}
+            -Dsonar.sources=lab_8/src,lab_8/include
+            -Dsonar.cfamily.compile-commands=lab_8/build_wrapper/compile_commands.json
             -Dsonar.coverage.exclusions=**
             -Dsonar.cfamily.skipCoverage=true
             -Dsonar.exclusions=**/build/**,**/*.exe
