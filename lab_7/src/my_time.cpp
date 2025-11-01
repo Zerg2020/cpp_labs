@@ -6,73 +6,87 @@
 #include "consts.h"
 #include "utils.h"
 
-Time::Time(int inputHour, int inputMinut, int inputSecond)
-    : hour(inputHour), minute(inputMinut), second(inputSecond) {}
-
-void Time::showTimeFormatException(const std::string& time,
-                                   const std::exception& exc) {
-    std::cout << kRedColor << "\nIncorrect time format: " << exc.what()
-              << " | input: " << time << kWhiteColor << std::endl;
+Time::Time(int input_hour, int input_minut, int input_second) :
+    hour(input_hour), minute(input_minut), second(input_second)
+{
 }
 
-void Time::parse(const std::string& time) {
-    try {
-        if (time.length() != kFormatTimeLen) {
-            throw std::invalid_argument(
-                "expected format HH:MM:SS (8 characters)");
+void Time::show_time_format_exception(const std::string &time, const std::exception &exc)
+{
+    std::cout << C_RED << "\nIncorrect time format: " << exc.what() << " | input: " << time
+              << C_WHITE << std::endl;
+}
+
+void Time::parse(const std::string &time)
+{
+    try
+    {
+        if (time.length() != FORMAT_TIME_LEN)
+        {
+            throw std::invalid_argument("expected format HH:MM:SS (8 characters)");
         }
 
-        if (time[2] != ':' || time[5] != ':') {
-            throw std::invalid_argument(
-                "separators must be ':' at positions 3 and 6");
+        if (time[2] != ':' || time[5] != ':')
+        {
+            throw std::invalid_argument("separators must be ':' at positions 3 and 6");
         }
 
-        if (!isDigits(time, 0, 2) || !isDigits(time, 3, 2) ||
-            !isDigits(time, 6, 2)) {
-            throw std::invalid_argument(
-                "hours, minutes and seconds must contain only digits");
+        if (!is_digits(time, 0, 2) || !is_digits(time, 3, 2) || !is_digits(time, 6, 2))
+        {
+            throw std::invalid_argument("hours, minutes and seconds must contain only digits");
         }
 
-        int tmpHour = std::stoi(time.substr(0, 2));
-        int tmpMinute = std::stoi(time.substr(3, 2));
-        int tmpSecond = std::stoi(time.substr(6, 2));
+        int tmp_hour = std::stoi(time.substr(0, 2));
+        int tmp_minute = std::stoi(time.substr(3, 2));
+        int tmp_second = std::stoi(time.substr(6, 2));
 
-        if (tmpHour < 0 || tmpHour > kHoursCount) {
+        if (tmp_hour < 0 || tmp_hour > HOURS_COUNT)
+        {
             throw std::invalid_argument("hour out of range (00..23)");
         }
 
-        if (tmpMinute < 0 || tmpMinute > kMinutesCount) {
+        if (tmp_minute < 0 || tmp_minute > MINUTES_COUNT)
+        {
             throw std::invalid_argument("minute out of range (00..59)");
         }
 
-        if (tmpSecond < 0 || tmpSecond > kSecondsCount) {
+        if (tmp_second < 0 || tmp_second > SECOUNDS_COUNt)
+        {
             throw std::invalid_argument("second out of range (00..59)");
         }
 
-        hour = tmpHour;
-        minute = tmpMinute;
-        second = tmpSecond;
-
-    } catch (const std::invalid_argument& exc) {
-        showTimeFormatException(time, exc);
-    } catch (const std::out_of_range& exc) {
-        showTimeFormatException(time, exc);
+        hour = tmp_hour;
+        minute = tmp_minute;
+        second = tmp_second;
+    }
+    catch (const std::invalid_argument &exc)
+    {
+        show_time_format_exception(time, exc);
+    }
+    catch (const std::out_of_range &exc)
+    {
+        show_time_format_exception(time, exc);
     }
 }
 
-void Time::input() {
-    std::string inputTime;
+void Time::input()
+{
+    std::string input_time;
 
-    while (true) {
-        inputTime =
-            getValue<std::string>("\nPlease enter the time (HH:MM:SS): ");
+    while (true)
+    {
+        input_time = get_value<std::string>("\nPlease enter the time (HH:MM:SS): ");
 
-        parse(inputTime);
+        parse(input_time);
 
-        if (!isEmpty()) {
+        if (!is_empty())
+        {
             return;
         }
     }
 }
 
-bool Time::isEmpty() const { return (hour == 0 || minute == 0 || second == 0); }
+bool Time::is_empty() const
+{
+    return (hour == 0 || minute == 0 || second == 0);
+}

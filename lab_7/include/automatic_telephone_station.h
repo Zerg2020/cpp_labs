@@ -8,33 +8,36 @@
 #include "phone_numbers.h"
 #include "tariff.h"
 
-class ATS {
+class ATS
+{
     Date date;
-    CityCode cityCode;
-    CityName cityName;
+    CityCode city_code;
+    CityName city_name;
     Time time;
-    MobileTariff mobileTariff;
-    PhoneNumber phoneNumber;
+    MobileTariff mobile_tariff;
+    PhoneNumber phone_number;
 
-   public:
+  public:
     ATS() = default;
 
-    friend std::ostream& operator<<(std::ostream& ostm, const ATS& ats) {
-        ostm << ats.date << " " << ats.cityCode << " " << ats.cityName << " "
-             << ats.time << " " << ats.mobileTariff << " " << ats.phoneNumber;
+    friend std::ostream &operator<<(std::ostream &ostm, const ATS &ats)
+    {
+        ostm << ats.date << " " << ats.city_code << " " << ats.city_name << " " << ats.time << " "
+             << ats.mobile_tariff << " " << ats.phone_number;
 
         return ostm;
     }
 
-    friend std::istream& operator>>(std::istream& istm, ATS& ats) {
-        istm >> ats.date >> ats.cityCode >> ats.cityName >> ats.time >>
-            ats.mobileTariff >> ats.phoneNumber;
+    friend std::istream &operator>>(std::istream &istm, ATS &ats)
+    {
+        istm >> ats.date >> ats.city_code >> ats.city_name >> ats.time >> ats.mobile_tariff >>
+            ats.phone_number;
 
         return istm;
     }
 
     void add();
     static void show();
-    static PhoneNumbers findPhoneNumbersByTariff(const MobileTariff& tariff);
-    bool isEmpty() const;
+    static PhoneNumbers find_phone_numbers_by_tariff(const MobileTariff &tariff);
+    bool is_empty() const;
 };

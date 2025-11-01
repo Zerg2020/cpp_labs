@@ -1,6 +1,7 @@
 #include "program.h"
 
-int main() {
+int main()
+{
     Program program;
 
     program.run();

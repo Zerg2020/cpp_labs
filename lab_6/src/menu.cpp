@@ -2,10 +2,10 @@
 
 #include <iostream>
 
-void showTaskMenu() {
+void show_task_menu()
+{
     std::cout << "\t\t\t\tTASK" << std::endl;
-    std::cout << "Create a program to check input format of a date."
-              << std::endl;
+    std::cout << "Create a program to check input format of a date." << std::endl;
     std::cout << "Implement methods to:" << std::endl;
     std::cout << "- Parse a date string in format dd.mm.yy." << std::endl;
     std::cout << "- Validate correctness of the format." << std::endl;

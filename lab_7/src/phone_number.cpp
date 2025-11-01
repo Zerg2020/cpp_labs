@@ -5,58 +5,66 @@
 #include "consts.h"
 #include "utils.h"
 
-void PhoneNumber::showPhoneFormatException(const std::string& raw,
-                                           const std::exception& exc) {
-    std::cout << kRedColor << "\nIncorrect phone format: " << exc.what()
-              << " | input: " << raw << kWhiteColor << std::endl;
+void PhoneNumber::show_phone_format_exception(const std::string &raw, const std::exception &exc)
+{
+    std::cout << C_RED << "\nIncorrect phone format: " << exc.what() << " | input: " << raw
+              << C_WHITE << std::endl;
 }
 
-void PhoneNumber::parse(const std::string& phoneNum) {
-    try {
-        if (phoneNum.length() != kPhoneNumDigitsCount) {
+void PhoneNumber::parse(const std::string &phone_num)
+{
+    try
+    {
+        if (phone_num.length() != PHONE_NUM_DIGITS_COUNT)
+        {
             throw std::invalid_argument("expected format +375XXYYYYYYY");
         }
 
-        std::string tmpCountryCode =
-            phoneNum.substr(0, kCountryCodeDigitsCount);
-        std::string tmpOperatorCode =
-            phoneNum.substr(kOperatorCodePos, kOperatorCodeDigitsCount);
-        std::string tmpSubscriberNum =
-            phoneNum.substr(kSubscriberNumPos, kSubscriberNumDigitsCount);
+        std::string tmp_country_code = phone_num.substr(0, COUNTRY_CODE_DIGITS_COUNT);
+        std::string tmp_operator_code =
+            phone_num.substr(OPERATOR_CODE_POS, OPERATOR_CODE_DIGITS_COUNT);
+        std::string tmp_subscriber_num =
+            phone_num.substr(SUBSCRIBER_NUM_POS, SUBSCRIBER_NUMBER_DIGITS_COUNT);
 
-        if (tmpCountryCode != "+375") {
+        if (tmp_country_code != "+375")
+        {
             throw std::invalid_argument("country code must be +375");
         }
 
-        if (!isDigits(tmpOperatorCode) || !isDigits(tmpSubscriberNum)) {
+        if (!is_digits(tmp_operator_code) || !is_digits(tmp_subscriber_num))
+        {
             throw std::invalid_argument(
                 "operator code and subscriber number must contain only digits");
         }
 
-        countryCode = tmpCountryCode;
-        operatorCode = tmpOperatorCode;
-        subscriberNumber = tmpSubscriberNum;
-
-    } catch (const std::invalid_argument& exc) {
-        showPhoneFormatException(phoneNum, exc);
+        country_code = tmp_country_code;
+        operator_code = tmp_operator_code;
+        subscriber_number = tmp_subscriber_num;
+    }
+    catch (const std::invalid_argument &exc)
+    {
+        show_phone_format_exception(phone_num, exc);
     }
 }
 
-void PhoneNumber::input() {
-    std::string inputPhoneNumber;
-    while (true) {
-        inputPhoneNumber = getValue<std::string>(
-            "\nPlease enter Belarusian phone number (+375XXYYYYYYY): ");
+void PhoneNumber::input()
+{
+    std::string input_phone_number;
+    while (true)
+    {
+        input_phone_number =
+            get_value<std::string>("\nPlease enter Belarusian phone number (+375XXYYYYYYY): ");
 
-        parse(inputPhoneNumber);
+        parse(input_phone_number);
 
-        if (!isEmpty()) {
+        if (!is_empty())
+        {
             return;
         }
     }
 }
 
-bool PhoneNumber::isEmpty() const {
-    return countryCode.empty() || operatorCode.empty() ||
-           subscriberNumber.empty();
+bool PhoneNumber::is_empty() const
+{
+    return country_code.empty() || operator_code.empty() || subscriber_number.empty();
 }

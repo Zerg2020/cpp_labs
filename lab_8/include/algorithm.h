@@ -3,49 +3,62 @@
 #include "array.h"
 
 template <typename T>
-class Algorithm {
-   public:
-    bool find(const Array<T>& arr, const T& value) const;
-    void sort(Array<T>& arr) const;
+class Algorithm
+{
+  public:
+    bool find(const Array<T> &arr, const T &value) const;
+    void sort(Array<T> &arr) const;
 };
 
 template <typename T>
-void Algorithm<T>::sort(Array<T>& arr) const {
+void Algorithm<T>::sort(Array<T> &arr) const
+{
     size_t size = arr.size();
 
-    for (size_t i = 1; i < size; i++) {
-        T keyValue = arr[i];
-        size_t insertPos = i;
+    for (size_t i = 1; i < size; i++)
+    {
+        T key_value = arr[i];
+        size_t insert_pos = i;
 
-        while (insertPos > 0 && arr[insertPos - 1] > keyValue) {
-            arr[insertPos] = arr[insertPos - 1];
-            insertPos--;
+        while (insert_pos > 0 && arr[insert_pos - 1] > key_value)
+        {
+            arr[insert_pos] = arr[insert_pos - 1];
+            insert_pos--;
         }
-        arr[insertPos] = keyValue;
+        arr[insert_pos] = key_value;
     }
 }
 
 template <typename T>
-bool Algorithm<T>::find(const Array<T>& arr, const T& value) const {
-    if (arr.empty()) {
+bool Algorithm<T>::find(const Array<T> &arr, const T &value) const
+{
+    if (arr.empty())
+    {
         return false;
     }
 
     size_t left = 0;
     size_t right = arr.size() - 1;
 
-    while (left <= right) {
+    while (left <= right)
+    {
         size_t mid = (right + left) / 2;
 
-        if (arr[mid] == value) {
+        if (arr[mid] == value)
+        {
             return true;
         }
 
-        if (value > arr[mid]) {
+        if (value > arr[mid])
+        {
             left = mid + 1;
-        } else if (value < arr[mid]) {
+        }
+        else if (value < arr[mid])
+        {
             right = mid - 1;
-        } else {
+        }
+        else
+        {
             break;
         }
     }

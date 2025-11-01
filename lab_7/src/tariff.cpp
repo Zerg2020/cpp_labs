@@ -6,62 +6,76 @@
 #include "consts.h"
 #include "utils.h"
 
-void MobileTariff::showTariffFormatException(
-    const std::string& inputMobileTariff, const std::exception& exc) {
-    std::cout << kRedColor << "\nIncorrect tariff format: " << exc.what()
-              << " | input: " << inputMobileTariff << kWhiteColor << std::endl;
+void MobileTariff::show_tariff_format_exception(const std::string &input_mobile_tariff,
+                                                const std::exception &exc)
+{
+    std::cout << C_RED << "\nIncorrect tariff format: " << exc.what()
+              << " | input: " << input_mobile_tariff << C_WHITE << std::endl;
 }
 
-bool MobileTariff::isValidTariff(const std::string_view& inputMobileTariff) {
-    std::ifstream fileIn;
+bool MobileTariff::is_valid_tariff(const std::string_view &input_mobile_tariff)
+{
+    std::ifstream file_in;
 
-    std::string fileContent;
+    std::string file_content;
 
-    fileIn.open(kFileWithTariffs);
+    file_in.open(FILE_WITH_TARIFFS);
 
-    if (!fileIn.is_open()) {
-        std::cout << kRedColor << "\nError, could not open " << kFileWithTariffs
-                  << ". Please try again!" << kWhiteColor << std::endl;
+    if (!file_in.is_open())
+    {
+        std::cout << C_RED << "\nError, could not open " << FILE_WITH_TARIFFS
+                  << ". Please try again!" << C_WHITE << std::endl;
         return false;
     }
 
-    while (fileIn >> fileContent) {
-        if (fileContent == inputMobileTariff) {
-            fileIn.close();
+    while (file_in >> file_content)
+    {
+        if (file_content == input_mobile_tariff)
+        {
+            file_in.close();
             return true;
         }
     }
 
-    fileIn.close();
+    file_in.close();
     return false;
 }
 
-void MobileTariff::parse(const std::string& inputMobileTariff) {
-    try {
-        if (!isValidTariff(inputMobileTariff)) {
+void MobileTariff::parse(const std::string &input_mobile_tariff)
+{
+    try
+    {
+        if (!is_valid_tariff(input_mobile_tariff))
+        {
             throw std::invalid_argument("Unknown Belarusian mobile tariff");
         }
 
-        mobileTariff = inputMobileTariff;
-
-    } catch (const std::invalid_argument& exc) {
-        showTariffFormatException(inputMobileTariff, exc);
+        mobile_tariff = input_mobile_tariff;
+    }
+    catch (const std::invalid_argument &exc)
+    {
+        show_tariff_format_exception(input_mobile_tariff, exc);
     }
 }
 
-void MobileTariff::input() {
-    std::string inputMobileTariff;
+void MobileTariff::input()
+{
+    std::string input_mobile_tariff;
 
-    while (true) {
-        inputMobileTariff =
-            getValue<std::string>("\nEnter Belarusian tariff name: ");
+    while (true)
+    {
+        input_mobile_tariff = get_value<std::string>("\nEnter Belarusian tariff name: ");
 
-        parse(inputMobileTariff);
+        parse(input_mobile_tariff);
 
-        if (!isEmpty()) {
+        if (!is_empty())
+        {
             return;
         }
     }
 }
 
-bool MobileTariff::isEmpty() const { return mobileTariff.empty(); }
+bool MobileTariff::is_empty() const
+{
+    return mobile_tariff.empty();
+}

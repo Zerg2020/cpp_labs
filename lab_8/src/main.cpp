@@ -1,7 +1,8 @@
 #include "utils.h"
 
-int main() {
-    choiceArrayType();
-    
+int main()
+{
+    choice_array_type();
+
     return 0;
 }

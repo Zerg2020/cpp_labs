@@ -8,21 +8,23 @@
 #include "phone_numbers.h"
 #include "utils.h"
 
-void ATS::add() {
+void ATS::add()
+{
     ATS tmp;
 
     tmp.date.input();
-    tmp.cityCode.input();
-    tmp.cityName.input();
+    tmp.city_code.input();
+    tmp.city_name.input();
     tmp.time.input();
-    tmp.mobileTariff.input();
-    tmp.phoneNumber.input();
+    tmp.mobile_tariff.input();
+    tmp.phone_number.input();
 
     std::ofstream fileOut;
 
-    fileOut.open(kFileWithData, std::ios::app);
+    fileOut.open(FILE_WITH_DATA, std::ios::app);
 
-    if (!isValidFileOpen(fileOut, kFileWithData)) {
+    if (!is_valid_file_open(fileOut, FILE_WITH_DATA))
+    {
         return;
     }
 
@@ -33,46 +35,54 @@ void ATS::add() {
     *this = tmp;
 }
 
-void ATS::show() {
-    std::ifstream fileIn;
+void ATS::show()
+{
+    std::ifstream file_in;
 
-    fileIn.open(kFileWithData);
+    file_in.open(FILE_WITH_DATA);
 
     ATS tmp;
 
-    if (!isValidFileOpen(fileIn, kFileWithData)) {
+    if (!is_valid_file_open(file_in, FILE_WITH_DATA))
+    {
         return;
     }
 
     std::cout << "\n\t\t\t\tATS" << std::endl;
 
-    while (fileIn >> tmp) {
+    while (file_in >> tmp)
+    {
         std::cout << tmp << std::endl;
     }
 }
 
-PhoneNumbers ATS::findPhoneNumbersByTariff(const MobileTariff& tariff) {
-    std::ifstream fileIn;
+PhoneNumbers ATS::find_phone_numbers_by_tariff(const MobileTariff &tariff)
+{
+    std::ifstream file_in;
 
-    fileIn.open(kFileWithData);
+    file_in.open(FILE_WITH_DATA);
 
     ATS tmp;
     PhoneNumbers res;
 
-    if (!isValidFileOpen(fileIn, kFileWithData)) {
+    if (!is_valid_file_open(file_in, FILE_WITH_DATA))
+    {
         return res;
     }
 
-    while (fileIn >> tmp) {
-        if (tmp.mobileTariff == tariff) {
-            res.add(tmp.phoneNumber);
+    while (file_in >> tmp)
+    {
+        if (tmp.mobile_tariff == tariff)
+        {
+            res.add(tmp.phone_number);
         }
     }
 
     return res;
 }
 
-bool ATS::isEmpty() const {
-    return (date.isEmpty() && cityCode.isEmpty() && cityName.isEmpty() &&
-            time.isEmpty() && mobileTariff.isEmpty() && phoneNumber.isEmpty());
+bool ATS::is_empty() const
+{
+    return (date.is_empty() && city_code.is_empty() && city_name.is_empty() && time.is_empty() &&
+            mobile_tariff.is_empty() && phone_number.is_empty());
 }

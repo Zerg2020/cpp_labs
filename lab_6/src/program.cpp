@@ -3,65 +3,68 @@
 #include "menu.h"
 #include "utils.h"
 
-void Program::inputDate() {
-    if (!date.isEmpty()) {
-        std::cout << kRedColor << "\nError, date is already full" << kWhiteColor
-                  << std::endl;
+void Program::input_date()
+{
+    if (!date.is_empty())
+    {
+        std::cout << C_RED << "\nError, date is already full" << C_WHITE << std::endl;
         return;
     }
 
     std::string str_date;
 
-    while (date.isEmpty()) {
-        str_date = getValue<std::string>("\nPlease enter a date: ");
+    while (date.is_empty())
+    {
+        str_date = get_value<std::string>("\nPlease enter a date: ");
         date.parse(str_date);
     }
 
-    std::cout << kGreenColor << "\nYou have successfully entered the date!"
-              << kWhiteColor << std::endl;
+    std::cout << C_GREEN << "\nYou have successfully entered the date!" << C_WHITE << std::endl;
 }
 
-void Program::showDate() const {
-    if (date.isEmpty()) {
-        std::cout << kRedColor
-                  << "\nError, date is not entered, please use first option"
-                  << kWhiteColor << std::endl;
+void Program::show_date() const
+{
+    if (date.is_empty())
+    {
+        std::cout << C_RED << "\nError, date is not entered, please use first option" << C_WHITE
+                  << std::endl;
         return;
     }
 
     date.show();
 
-    std::cout << kGreenColor
-              << "\nYou have successfully displayed the string on the screen!"
-              << kWhiteColor;
+    std::cout << C_GREEN << "\nYou have successfully displayed the string on the screen!"
+              << C_WHITE;
 }
 
-void Program::run() {
+void Program::run()
+{
     int opt = 0;
 
     system("clear");
-    showTaskMenu();
+    show_task_menu();
 
-    while (true) {
-        opt = getValue<int>("\nPlease enter a menu option: ");
+    while (true)
+    {
+        opt = get_value<int>("\nPlease enter a menu option: ");
 
-        switch (opt) {
-            case 1:
-                inputDate();
-                break;
-            case 2:
-                showDate();
-                break;
-            case 3:
-                std::cout << kGreenColor
-                          << "\nYou have successfully exited the program."
-                          << kWhiteColor << std::endl;
-                return;
-            default:
-                std::cout << kRedColor
-                          << "\nError, you picked is an incorrect menu option. "
-                             "Please try again."
-                          << kWhiteColor << std::endl;
+        switch (opt)
+        {
+        case 1:
+            input_date();
+            break;
+        case 2:
+            show_date();
+            break;
+        case 3:
+            std::cout << C_GREEN << "\nYou have successfully exited the program." << C_WHITE
+                      << std::endl;
+            return;
+        default:
+            std::cout << C_RED
+                      << "\nError, you picked is an incorrect menu option. "
+                         "Please try again."
+                      << C_WHITE << std::endl;
         }
     }
 }

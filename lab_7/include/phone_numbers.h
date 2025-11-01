@@ -2,23 +2,24 @@
 
 #include "phone_number.h"
 
-class PhoneNumbers {
-    PhoneNumber* phoneNumbers = nullptr;
+class PhoneNumbers
+{
+    PhoneNumber *phone_numbers = nullptr;
     int size = 0;
     int cap = 1;
 
-   public:
+  public:
     PhoneNumbers();
 
-    PhoneNumbers(const PhoneNumbers& other);
-    PhoneNumbers& operator=(const PhoneNumbers& other);
+    PhoneNumbers(const PhoneNumbers &other);
+    PhoneNumbers &operator=(const PhoneNumbers &other);
 
-    PhoneNumbers(PhoneNumbers&& other) noexcept;
-    PhoneNumbers& operator=(PhoneNumbers&& other) noexcept;
+    PhoneNumbers(PhoneNumbers &&other) noexcept;
+    PhoneNumbers &operator=(PhoneNumbers &&other) noexcept;
 
     ~PhoneNumbers();
 
-    void add(const PhoneNumber& number);
+    void add(const PhoneNumber &number);
     void show() const;
-    bool isEmpty() const;
+    bool is_empty() const;
 };

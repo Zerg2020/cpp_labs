@@ -2,12 +2,13 @@
 
 #include "date.h"
 
-class Program {
+class Program
+{
     Date date;
 
-    void inputDate();
-    void showDate() const;
+    void input_date();
+    void show_date() const;
 
-   public:
-    void run() ;
+  public:
+    void run();
 };

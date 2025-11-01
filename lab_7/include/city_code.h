@@ -2,27 +2,30 @@
 
 #include <iostream>
 
-class CityCode {
-    std::string cityCode;
+class CityCode
+{
+    std::string city_code;
 
-    static void showCityCodeFormatException(const std::string& inputCityCode,
-                                            const std::exception& exc);
+    static void show_city_code_format_exception(const std::string &input_city_code,
+                                                const std::exception &exc);
 
-   public:
+  public:
     CityCode() = default;
 
-    void parse(const std::string& inputCityCode);
+    void parse(const std::string &input_city_code);
     void input();
-    bool isEmpty() const;
+    bool is_empty() const;
 
-    friend std::ostream& operator<<(std::ostream& ostm, const CityCode& code) {
-        ostm << code.cityCode;
+    friend std::ostream &operator<<(std::ostream &ostm, const CityCode &code)
+    {
+        ostm << code.city_code;
 
         return ostm;
     }
 
-    friend std::istream& operator>>(std::istream& istm, CityCode& code) {
-        istm >> code.cityCode;
+    friend std::istream &operator>>(std::istream &istm, CityCode &code)
+    {
+        istm >> code.city_code;
 
         return istm;
     }

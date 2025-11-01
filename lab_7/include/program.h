@@ -2,14 +2,15 @@
 
 #include "automatic_telephone_station.h"
 
-class Program {
+class Program
+{
     ATS ats;
 
-    void addRecord();
-    void showAllRecords() const;
-    void displayPhoneNumbersByTariff() const;
+    void add_record();
+    void show_all_records() const;
+    void display_phone_numbers_by_tariff() const;
 
-   public:
+  public:
     Program();
 
     void run();

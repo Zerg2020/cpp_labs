@@ -2,34 +2,36 @@
 
 #include <iostream>
 
-class MobileTariff {
-    std::string mobileTariff;
+class MobileTariff
+{
+    std::string mobile_tariff;
 
-    static void showTariffFormatException(const std::string& inputMobileTariff,
-                                          const std::exception& exc);
-    static bool isValidTariff(const std::string_view& inputMobileTariff);
+    static void show_tariff_format_exception(const std::string &input_mobile_tariff,
+                                             const std::exception &exc);
+    static bool is_valid_tariff(const std::string_view &input_mobile_tariff);
 
-   public:
+  public:
     MobileTariff() = default;
 
-    void parse(const std::string& inputMobileTariff);
+    void parse(const std::string &input_mobile_tariff);
     void input();
-    bool isEmpty() const;
+    bool is_empty() const;
 
-    friend bool operator==(const MobileTariff& original,
-                           const MobileTariff& other) {
-        return (original.mobileTariff == other.mobileTariff);
+    friend bool operator==(const MobileTariff &original, const MobileTariff &other)
+    {
+        return (original.mobile_tariff == other.mobile_tariff);
     }
 
-    friend std::ostream& operator<<(std::ostream& ostm,
-                                    const MobileTariff& tariff) {
-        ostm << tariff.mobileTariff;
+    friend std::ostream &operator<<(std::ostream &ostm, const MobileTariff &tariff)
+    {
+        ostm << tariff.mobile_tariff;
 
         return ostm;
     }
 
-    friend std::istream& operator>>(std::istream& istm, MobileTariff& tariff) {
-        istm >> tariff.mobileTariff;
+    friend std::istream &operator>>(std::istream &istm, MobileTariff &tariff)
+    {
+        istm >> tariff.mobile_tariff;
 
         return istm;
     }

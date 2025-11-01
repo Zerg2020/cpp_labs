@@ -2,19 +2,20 @@
 
 #include <iostream>
 
-void showTask() {
+void show_task()
+{
     std::cout << "\t\t\t\tTASK" << std::endl;
     std::cout << "Implement classes Container and Iterator for a "
                  "one-dimensional array."
               << std::endl;
-    std::cout << "Implement a class Algorithm that defines methods for:"
-              << std::endl;
+    std::cout << "Implement a class Algorithm that defines methods for:" << std::endl;
     std::cout << "- Searching the array." << std::endl;
     std::cout << "- Sorting the array." << std::endl;
     std::cout << "Build and demonstrate the program." << std::endl;
 }
 
-void showArrayTypeMenu() {
+void show_array_type_menu()
+{
     std::cout << "\nSelect array element type:\n";
     std::cout << "1. int\n";
     std::cout << "2. long\n";
@@ -24,7 +25,8 @@ void showArrayTypeMenu() {
     std::cout << "6. string\n";
 }
 
-void showMenu() {
+void show_menu()
+{
     std::cout << "\n\t\t\t\tARRAY MENU" << std::endl;
     std::cout << "1. Create array." << std::endl;
     std::cout << "2. Add element." << std::endl;
@@ -36,14 +38,16 @@ void showMenu() {
     std::cout << "8. Exit program." << std::endl;
 }
 
-void showAddMenu() {
+void show_add_menu()
+{
     std::cout << "\n\t\t\t\tADD MENU" << std::endl;
     std::cout << "1. Add to the beginning (push_front)." << std::endl;
     std::cout << "2. Add to the end (push_back)." << std::endl;
     std::cout << "3. Insert at index." << std::endl;
 }
 
-void showRemoveMenu() {
+void show_remove_menu()
+{
     std::cout << "\n\t\t\t\tREMOVE MENU" << std::endl;
     std::cout << "1. Remove from the beginning (pop_front)." << std::endl;
     std::cout << "2. Remove from the end (pop_back)." << std::endl;
